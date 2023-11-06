@@ -186,7 +186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pieza: {fileID: 4258829422175787603, guid: 703461dc55619be45b157b13027b85c3, type: 3}
-  totalPiezas: 20
+  totalPiezas: 500
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
