@@ -16,6 +16,7 @@ public class LaberintoCrecimiento : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        navMeshSurface = GetComponent<NavMeshSurface>();
         hayHueco = true;
         piezaActual = null;
         StartCoroutine(Generar(0, 0));
