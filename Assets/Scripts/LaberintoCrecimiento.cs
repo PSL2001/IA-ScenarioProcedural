@@ -1,22 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.AI.Navigation;
 using UnityEngine;
 
 public class LaberintoCrecimiento : MonoBehaviour
 {
     public GameObject pieza;
     public int totalPiezas;
+    public GameObject agente;
 
     private bool hayHueco;
     private GameObject piezaActual;
+
+    private NavMeshSurface navMeshSurface;
     // Start is called before the first frame update
     void Start()
     {
         hayHueco = true;
         piezaActual = null;
         StartCoroutine(Generar(0, 0));
-    }
 
+        Invoke("Bake", 10.0f);
+    }
+    private void Bake()
+    {
+        navMeshSurface.BuildNavMesh();
+        Instantiate(agente, new Vector3(0, 2, 0), Quaternion.identity);
+    }
     IEnumerator Generar(float x, float z)
     {
         yield return new WaitForEndOfFrame();
